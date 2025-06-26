@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    kotlin("plugin.serialization") version "2.2.0"
 }
 
 kotlin {
@@ -15,6 +16,7 @@ kotlin {
         namespace = "org.override.book.logicave"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
 
     wasmJs {
@@ -48,19 +50,19 @@ kotlin {
         }
     }
 
-    jvm {
-        testRuns["test"].executionTask.configure { useJUnitPlatform() }
-    }
 
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlin.stdlib)
 
+            //AndroidX
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.navigation.compose)
+            //KotlinX
+            implementation(libs.kotlinx.serialization.json)
 
+            //Compose
             with(compose) {
                 implementation(runtime)
                 implementation(foundation)
@@ -68,6 +70,7 @@ kotlin {
                 implementation(ui)
                 implementation(components.resources)
                 implementation(components.uiToolingPreview)
+                implementation(libs.navigation.compose)
             }
         }
 
@@ -78,11 +81,3 @@ kotlin {
         commonTest.dependencies { implementation(libs.kotlin.test) }
     }
 }
-
-//tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-//    compilerOptions.freeCompilerArgs.addAll(
-//        listOf(
-//            "-Xopt-in=org.jetbrains.compose.resources.ExperimentalResourceApi"
-//        )
-//    )
-//}

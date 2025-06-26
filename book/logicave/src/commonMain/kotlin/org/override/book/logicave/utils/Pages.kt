@@ -1,12 +1,24 @@
 package org.override.book.logicave.utils
 
+import logicave.book.logicave.generated.resources.Res
+import logicave.book.logicave.generated.resources.pagina1_logic
+import logicave.book.logicave.generated.resources.pagina2_logic
+import logicave.book.logicave.generated.resources.pagina3_logic
+import logicave.book.logicave.generated.resources.pagina4_logic
+import logicave.book.logicave.generated.resources.pagina5_logic
+import logicave.book.logicave.generated.resources.pagina6_logic
+import logicave.book.logicave.generated.resources.pagina7_logic
+import org.jetbrains.compose.resources.DrawableResource
+
 enum class Pages(
+    val imageResource: DrawableResource,
     val routeActual: String,
     val routeNext: String,
     val routePrevious: String,
     val text: String
 ) {
     PAG1(
+        imageResource = Res.drawable.pagina1_logic,
         routeActual = RoutesLogic.PAG1.route,
         routeNext = RoutesLogic.PAG2.route,
         routePrevious = RoutesLogic.PAG1.route,
@@ -18,6 +30,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG2(
+        imageResource = Res.drawable.pagina2_logic,
         routeActual = RoutesLogic.PAG2.route,
         routeNext = RoutesLogic.PAG3.route,
         routePrevious = RoutesLogic.PAG1.route,
@@ -28,6 +41,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG3(
+        imageResource = Res.drawable.pagina3_logic,
         routeActual = RoutesLogic.PAG3.route,
         routeNext = RoutesLogic.PAG4.route,
         routePrevious = RoutesLogic.PAG2.route,
@@ -39,6 +53,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG4(
+        imageResource = Res.drawable.pagina4_logic,
         routeActual = RoutesLogic.PAG4.route,
         routeNext = RoutesLogic.PAG5.route,
         routePrevious = RoutesLogic.PAG3.route,
@@ -52,6 +67,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG5(
+        imageResource = Res.drawable.pagina5_logic,
         routeActual = RoutesLogic.PAG5.route,
         routeNext = RoutesLogic.PAG6.route,
         routePrevious = RoutesLogic.PAG4.route,
@@ -63,6 +79,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG6(
+        imageResource = Res.drawable.pagina6_logic,
         routeActual = RoutesLogic.PAG6.route,
         routeNext = RoutesLogic.PAG7.route,
         routePrevious = RoutesLogic.PAG5.route,
@@ -74,6 +91,7 @@ enum class Pages(
     """.trimIndent()
     ),
     PAG7(
+        imageResource = Res.drawable.pagina7_logic,
         routeActual = RoutesLogic.PAG7.route,
         routeNext = RoutesLogic.PAG7.route,
         routePrevious = RoutesLogic.PAG6.route,

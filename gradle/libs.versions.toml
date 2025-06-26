@@ -1,28 +1,35 @@
 [versions]
 agp = "8.10.1"
 android-compileSdk = "35"
-android-minSdk = "24"
+android-minSdk = "30"
 android-targetSdk = "35"
 androidx-activity = "1.10.1"
 androidx-lifecycle = "2.9.1"
+coilCompose = "3.2.0"
+coilNetworkKtor = "3.0.0-alpha08"
 composeMultiplatform = "1.8.1"
 kotlin = "2.2.0"
 kotlinStdlib = "2.2.0"
 navigationCompose = "2.9.0-beta03"
-runner = "1.6.2"
-core = "1.6.1"
-junit = "1.2.1"
+ktor = "3.2.0"
 
 [libraries]
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coilNetworkKtor" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
-androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
-androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.8.1" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
