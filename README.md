@@ -1,21 +1,97 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Web.
+# Logicave - Calabozos Y Compuertas
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+¡Bienvenido a Logicave! Este repositorio contiene un libro interactivo, autónomo y multiplataforma,
+construido con **Kotlin Multiplatform** y **Compose Multiplataform**.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+El módulo `:book:logicave` es el primer ejemplo de esta librería: un cuento ilustrado que narra una
+aventura a través de cuevas mágicas, cada una representando una puerta lógica. Está diseñado para
+ser una experiencia de lectura fluida y visualmente atractiva.
 
+El objetivo de este proyecto es servir como una **librería de libros**. Puedes integrar fácilmente "
+Logicave" o usar su arquitectura como una plantilla robusta para crear y añadir nuevas historias
+interactivas a tu propia aplicación.
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
+## Características Principales
 
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [YouTrack](https://youtrack.jetbrains.com/newIssue?project=CMP).
+* **100% Kotlin Multiplatform**: Comparte código entre Android, iOS y Web (WasmJs) desde una única
+  base de código.
+* **Experiencia de Usuario Inmersiva**: Navegación intuitiva mediante gestos de deslizamiento (
+  swipe) o toques en los bordes de la pantalla.
+* **Animaciones Fluidas**: Efecto de "pila de tarjetas" al pasar las páginas, con animaciones suaves
+  y físicas que hacen la interacción más agradable.
+* **Componentes Reutilizables**: La interfaz está construida con componentes modulares de **Compose
+  Multiplataform**, listos para ser usados en otros libros.
+* **Fácil de Integrar**: Añade un libro completo a tu aplicación llamando a un solo Composable.
+* **Contenido Desacoplado**: La historia, imágenes y rutas están centralizadas en un único archivo (
+  `Pages.kt`), lo que facilita la creación de nuevos libros sin tocar la lógica principal.
 
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+## ¿Cómo usar este módulo?
+
+Integrar el libro `Logicave` en una aplicación existente de Compose Multiplatform es muy sencillo.
+
+#### 1. Añadir la dependencia
+
+En el archivo `build.gradle.kts` de tu módulo principal (por ejemplo, `composeApp`), añade el
+proyecto `:book:logicave` como una dependencia.
+
+```kotlin
+// En composeApp/build.gradle.kts
+
+kotlin {
+    // ...
+    sourceSets {
+        commonMain.dependencies {
+            // ...
+            // Añade esta línea para incluir el módulo del libro
+            implementation(projects.book.logicave)
+        }
+    }
+}
+```
+
+#### 2. Mostrar el libro
+
+En cualquier parte de tu UI de Compose, simplemente llama al Composable `LogicaveRoot()` para
+renderizar toda la experiencia del libro.
+
+```kotlin
+import org.override.book.logicave.LogicaveRoot
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+
+@Composable
+fun YourApp() {
+    Surface {
+        // ¡Eso es todo! El libro se mostrará aquí.
+        LogicaveRoot()
+    }
+}
+```
+
+El módulo gestionará su propia navegación interna, estado y toda la lógica de la interfaz de
+usuario.
+
+## Vista Previa
+
+Así es como se ve la experiencia de navegación en la aplicación:
+
+*(Nota: Este es un marcador de posición. Puedes reemplazarlo con un GIF real de tu aplicación.)*
+
+## Crea tu Propio Libro
+
+Este repositorio está pensado como una base para una gran biblioteca de cuentos. Para crear un nuevo
+libro:
+
+1. **Crea un nuevo módulo** (ej. `:book:mi-cuento-nuevo`).
+2. **Define tu contenido**: Dentro de tu nuevo módulo, crea un archivo similar a `utils/Pages.kt`
+   para listar tus páginas, con sus respectivas imágenes y textos.
+3. **Ajusta la navegación**: Configura las rutas de tu nuevo libro.
+4. **¡Llama a tu nuevo `Composable` raíz** en la aplicación principal!
+
+Los componentes como `BookSwipeNavigation` y `BookPage` son altamente reutilizables y pueden
+adaptarse a cualquier contenido nuevo.
+
+## Feedback y Contribuciones
+
+Este proyecto está en constante evolución. Si tienes alguna idea, encuentras un error o quieres
+contribuir, ¡no dudes en abrir un *issue* o enviar un *pull request*!
