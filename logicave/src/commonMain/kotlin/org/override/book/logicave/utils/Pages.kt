@@ -1,13 +1,13 @@
 package org.override.book.logicave.utils
 
-import logicave.book.logicave.generated.resources.Res
-import logicave.book.logicave.generated.resources.pagina1_logic
-import logicave.book.logicave.generated.resources.pagina2_logic
-import logicave.book.logicave.generated.resources.pagina3_logic
-import logicave.book.logicave.generated.resources.pagina4_logic
-import logicave.book.logicave.generated.resources.pagina5_logic
-import logicave.book.logicave.generated.resources.pagina6_logic
-import logicave.book.logicave.generated.resources.pagina7_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.Res
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina1_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina2_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina3_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina4_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina5_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina6_logic
+import calabozoscompuertaslibrary.logicave.generated.resources.pagina7_logic
 import org.jetbrains.compose.resources.DrawableResource
 
 enum class Pages(

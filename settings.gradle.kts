@@ -27,6 +27,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include(":book:controller")
+include(":controller")
 include(":composeApp")
-include(":book:logicave")
+include(":logicave")

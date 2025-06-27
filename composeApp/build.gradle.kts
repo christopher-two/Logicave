@@ -58,7 +58,7 @@ kotlin {
         }
         commonMain.dependencies {
             //Modules
-            implementation(projects.book.logicave)
+            implementation(projects.logicave)
 
             //Ktor
             implementation(libs.ktor.client.core)
