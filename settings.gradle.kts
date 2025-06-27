@@ -1,4 +1,4 @@
-rootProject.name = "Logicave"
+rootProject.name = "CalabozosCompuertasLibrary"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -27,6 +27,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
+include(":book:controller")
 include(":composeApp")
 include(":book:logicave")

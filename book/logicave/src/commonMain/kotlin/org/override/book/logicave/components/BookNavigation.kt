@@ -11,9 +11,10 @@ import androidx.navigation.compose.composable
 import org.override.book.logicave.utils.Pages
 import org.override.book.logicave.utils.RoutesLogic
 
-// Composable principal de navegación
 @Composable
-internal fun BookNavigation(navController: NavHostController) {
+internal fun BookNavigation(
+    navController: NavHostController,
+) {
     val pages = Pages.entries.toTypedArray()
 
     NavHost(
